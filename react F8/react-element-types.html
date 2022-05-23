@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- 
+        * Hooks
+
+        1.React element types: hỗ trọ string, function/class
+            - Wrapper
+             + Header -> Header component
+             + Content -> Content component
+             + Footer -> Footer component
+        2. Biểu diễn đơn giản với JSX
+     -->
+     <div id="app"></div>
+
+     <script type="text/babel">
+    // //  với function
+    // function Header(){
+    //     return (
+    //         <div className="header">Header</div>
+    //     )
+    // };
+    // // Với class
+    // class Content extends React.Component {
+    //     render(){
+    //         return <div className="content">content</div>
+    //     }
+    // }
+    // // biến 1 function trở thành 1 cú pháp <Header></Header> do sự hỗ trợ của JSX khi không có child thì nó sẽ hỗ trợ viết <Header/>
+    //  const app = (
+    //      <div className="Wraper">
+    //         <Header/>
+    //         <Content/>
+    //         <div className="footer">Footer</div>
+    //     </div>
+    //  )
+    //  ReactDOM.render(app, document.getElementById('app'))
+
+
+    // bài tập:
+    const app = (
+        <div className="posts-list">
+            <div className="post-item">
+                <h2 className="post-title">C#(.NET) - Tương tác với file Excel</h2>
+                <p className="post-desc">Bạn có kiến thức ngôn ngữ C#! Bạn muốn thực hiện tương tác với file Excel</p>
+                <p className="post-published">Một ngày trước . 5 phút đọc</p>
+            </div>    
+        </div>
+    )
+
+    ReactDOM.render(app, document.getElementById('app'))
+    </script>
+</body>
+</html>

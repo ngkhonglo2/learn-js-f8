@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- 
+        Props
+
+        - React element:
+            + Sử dụng props giống như với attribute của thẻ HTML
+            + 2 props class, for => className, htmlFor
+            + Phải tuân theo quy ước có sẵn
+        - React components:
+            + Sử dụng props giống như đối số cho Component
+            + Tự do đặt tên props
+                * Đặt theo cameCase
+                * Có thể bao gồm dấu gạch ngang
+        - Chú ý:
+            + Props "key" là prop đặc biệt
+            + Props cơ bản là đối số của Component
+                =>Props có thể là bất cứ kiểu dữ liệu gì
+            + Sử dụng destructuring (chuyền vào function đối số ({}))
+     -->
+     <div id="root"></div>
+     <script type="text/babel">
+        // PostItem.js
+        function PostiItem({
+            imgae,
+            title,
+            description,
+            publisheAt,
+        }){
+            
+            return (
+                <div className="post-item">
+                    <label htmlFor="email">Email</label>
+                    <input id="email"/>
+                    <img
+                     src={imgae} 
+                     alt={title}/> 
+                     <h2 className="post-title">{title}</h2>
+                    <p className="post-desc">{description}</p>
+                    <p className="post-published">{publisheAt}</p>    
+                </div>
+            )
+        }
+        
+        // Tạo App.js
+        function App(){
+            return (
+                <div id="wrapper">
+                    <PostiItem
+                    title="1 C#(.NET) - Tương tác với file Excel"
+                    imgae="https://msmobile.com.vn/upload_images/images/hinh-nen-dep-cho-may-tinh-full-hd-2.jpg"
+                    description="1 Bạn có kiến thức ngôn ngữ C#! Bạn muốn thực hiện tương tác với file Excel"
+                    publisheAt="1 Một ngày trước . 5 phút đọc"
+                    callback={(random)=>{
+                        console.log('random', random);
+                    }}
+                    />
+                    <PostiItem
+                    title="2 C#(.NET) - Tương tác với file Excel"
+                    imgae="https://msmobile.com.vn/upload_images/images/hinh-nen-dep-cho-may-tinh-full-hd-2.jpg"
+                    description="2 Bạn có kiến thức ngôn ngữ C#! Bạn muốn thực hiện tương tác với file Excel"
+                    publisheAt="2 Một ngày trước . 5 phút đọc"
+                    />
+                    <PostiItem
+                    title="3 C#(.NET) - Tương tác với file Excel"
+                    imgae="https://msmobile.com.vn/upload_images/images/hinh-nen-dep-cho-may-tinh-full-hd-2.jpg"
+                    description="3 Bạn có kiến thức ngôn ngữ C#! Bạn muốn thực hiện tương tác với file Excel"
+                    publisheAt="3 Một ngày trước . 5 phút đọc"
+                    />
+                </div>
+            )
+        }
+
+        // tạo ra index.js
+        ReactDOM.render(<App/>, document.getElementById('root'))
+    </script>
+</body>
+</html>

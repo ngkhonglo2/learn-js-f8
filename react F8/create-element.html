@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. document.createElement()
+    2. document.body.appendChild()
+    3. console.dir()
+    4. innerText, id, className, style -->
+
+    <div id="root"></div>
+    <script>
+        // Ví dụ 1:
+        // createElement: đây là 1 method để tạo ra element
+        const h1 = document.createElement('h1')
+        // innerText: thêm nội dung văn bản vào element
+        h1.innerText = 'Hello guys!'
+        // thêm id
+        h1.id = 'heading'
+        // thêm class
+        h1.className = 'test class-2'
+        // thêm style
+        h1.style = 'color: green;font-size: 20px'
+        // Element vẫn chỉ đang ở trong bộ nhớ để render vào DOM thì 
+        // appendChild: là method thêm thằng con vào
+        document.body.appendChild(h1)
+
+        // Ví dụ 2:
+        const root = document.getElementById('root')
+        const h2 = document.createElement('h2')
+
+        h2.innerText = 'what are you doing?'
+        //Object.assign: Là method sao chép tất cả các thuộc tính riêng có thể liệt kê từ một hoặc nhiều đối tượng nguồn sang một đối tượng đích. Nó trả về đối tượng đích đã sửa đổi.
+        Object.assign(h1.style, {
+            color: 'blue',
+            backgroundColor: 'pink'
+        })
+        console.log(h2);
+
+        root.appendChild(h2)
+    </script>
+</body>
+</html>

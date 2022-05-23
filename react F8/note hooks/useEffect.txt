@@ -1,0 +1,49 @@
+1. Side effects: là những hiệu ứng tác động và biến đổi trạng thái state nằm bên ngoài  component của mình
+như:
+    - Gọi API lấy dữ liệu
+    - Tương tác với DOM
+    - Subscriptions
+    - setTimeout, setInterval
+Theo tài liệu chính thức chia làm 2 loại side effects:
+    1. Effects ko cần clean up: gọi API, tương tác DOM
+    2. Effects cần clean up: Subscriptions, setTimeout, setInterval
+
+2. hook useEffect():
+    - là một hook cơ bản trong React hooks
+    - Sử dụng cho side effect và clean up(optional)
+    - Được thực thi sau mỗi lần render
+    - Được thực thi ít nhất 1 lần sau lần render đầu tiên
+    - Những lần render sau, chỉ được thực thi nếu có dependencies thay đổi
+    - Effect cleanup sẽ được thực thi trước run effect lần tiếp theo hoặc unmount
+
+3. Cú pháp của useEffect:
+    function useEffect(callback, dependensices){}
+
+    code mẫu:
+    function App(){
+        // executed before each render 
+        const [color, setColor] = useState('deepink');
+
+        // executed after each render
+        useEffect(() => {
+        // do your side effect here ...
+
+            return () => {
+            // Clean up here...
+            // Executed before the next render or unmount  
+            };
+        }, []);
+    }
+
+    //rendering
+    return <h1>Easy Frontend</h1>
+
+    * MOUNTING
+    - rendering
+    - run useEffect()
+    * UPDATING
+    - rendering
+    - run `useEffect() cleanup` nếu dependencies thay đổi
+    - run `useEffect` nếu dependencies thay đổi
+    * UNMOUNTING
+    - run `useEffect() cleanup` 

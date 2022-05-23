@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+</head>
+<body>
+    <!-- 
+        1. tại sao phải sử dụng React-DOM?
+        - là cầu nối giữa React và DOM. Nghĩa là cầu nối để giúp react tạo ra reactElement và có thể dùng element đó
+        để render vào DOM
+        2. Tại sao lại tach React-DOM ra?
+        3. Render UI
+
+        <div class="post-item">
+            <h2 title="Học React tại F8">Học ReactJS</h2>
+            <p>Học ReactJS từ cơ bản đến nâng cao</p>
+        </div>
+     -->
+
+    <div id="root"></div>     
+
+     <script>
+        //  React
+         const postItem = React.createElement(
+             'div',
+             {
+                 class: 'post-item'
+             },
+             React.createElement('h2', {title: 'Học React tại F8'}, 'Học ReactJS'),
+             React.createElement('p', {},'Học ReactJS từ cơ bản đến nâng cao')
+         ) 
+
+        //  Get root element
+        const root = document.getElementById('root')
+
+        // ReactDOM -> render UI
+        ReactDOM.render(postItem, root)
+        
+     </script>
+</body>
+</html>
